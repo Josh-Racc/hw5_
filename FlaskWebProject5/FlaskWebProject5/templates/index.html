@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="lab-grid">
+    <article class="panel-card control-panel">
+        <div class="section-heading">
+            <p class="section-kicker">Controls</p>
+            <h1>Cellular Automata Composer</h1>
+        </div>
+
+        <label class="control-field" for="grid-size">
+            <span>Grid size</span>
+            <div class="field-row">
+                <input id="grid-size" type="range" min="12" max="28" step="2" value="18" />
+                <output id="grid-size-value" for="grid-size">18 x 18</output>
+            </div>
+        </label>
+
+        <label class="control-field" for="steps">
+            <span>Generations</span>
+            <div class="field-row">
+                <input id="steps" type="range" min="16" max="72" step="4" value="40" />
+                <output id="steps-value" for="steps">40</output>
+            </div>
+        </label>
+
+        <label class="control-field" for="density">
+            <span>Starting density</span>
+            <div class="field-row">
+                <input id="density" type="range" min="0.12" max="0.48" step="0.02" value="0.26" />
+                <output id="density-value" for="density">26%</output>
+            </div>
+        </label>
+
+        <label class="control-field" for="tempo">
+            <span>Tempo</span>
+            <div class="field-row">
+                <input id="tempo" type="range" min="72" max="168" step="4" value="108" />
+                <output id="tempo-value" for="tempo">108 BPM</output>
+            </div>
+        </label>
+
+        <label class="control-field" for="scale">
+            <span>Pitch palette</span>
+            <select id="scale">
+                <option value="cMinor">C Minor Pentatonic</option>
+                <option value="dDorian">D Dorian</option>
+                <option value="aAeolian">A Natural Minor</option>
+                <option value="gMixolydian">G Mixolydian</option>
+            </select>
+        </label>
+
+        <label class="toggle-field" for="humor-mode">
+            <input id="humor-mode" type="checkbox" />
+            <span>Humor mode</span>
+        </label>
+
+        <p class="helper-text">
+            After changing any slider or mode, click <strong>Play</strong> again to hear the updated result.
+        </p>
+
+        <div class="button-stack">
+            <button type="button" class="lab-button accent" id="play-button">Play</button>
+            <button type="button" class="lab-button ghost" id="stop-button">Stop</button>
+        </div>
+
+        <p class="status-text" id="status-text">
+            Change any setting, then click Play to regenerate the automaton and hear the new version.
+        </p>
+    </article>
+
+    <article class="panel-card canvas-panel">
+        <div class="section-heading">
+            <p class="section-kicker">Visualization</p>
+            <h2>Grid and activity timeline</h2>
+        </div>
+
+        <canvas id="automata-canvas" width="560" height="560" aria-label="Cellular automata visualization"></canvas>
+
+        <div class="canvas-legend">
+            <span><i class="legend-swatch resting"></i>Resting</span>
+            <span><i class="legend-swatch firing"></i>Firing</span>
+            <span><i class="legend-swatch cooling"></i>Cooling</span>
+        </div>
+
+        <canvas id="timeline-canvas" width="560" height="180" aria-label="Activity timeline"></canvas>
+
+        <p class="caption-text" id="caption-text">
+            Generation 1 of 1. Active cells: 0.
+        </p>
+    </article>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    window.MEME_SOUND_URLS = {{ meme_sound_urls|tojson }};
+</script>
+<script src="/static/scripts/cellular-automata-lab.js"></script>
+{% endblock %}
