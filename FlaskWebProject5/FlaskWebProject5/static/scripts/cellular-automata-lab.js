@@ -286,7 +286,7 @@
         }
 
         if (!MEME_SOUND_URLS.length) {
-            return baseCaption + " Humor mode is on, but no meme clips were found.";
+            return baseCaption + " Humor mode is on, but no meme clips were found :(.";
         }
 
         return baseCaption + " Humor mode will trigger " + MEME_SOUND_URLS.length + " meme clip" +
@@ -474,7 +474,7 @@
                     try {
                         oscillator.stop();
                     } catch (error) {
-                        // Oscillator may already be stopped.
+                        
                     }
                 }
             });
@@ -499,7 +499,7 @@
                     clip.pause();
                     clip.currentTime = 0;
                 } catch (error) {
-                    // Audio element may already be finished.
+                    
                 }
             }
         });

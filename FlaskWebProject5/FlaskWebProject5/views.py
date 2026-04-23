@@ -38,6 +38,16 @@ def home():
     )
 
 
+@app.route('/blog')
+def blog():
+    """Renders the lab blog post."""
+    return render_template(
+        'blog.html',
+        title='Lab Blog',
+        year=datetime.now().year,
+    )
+
+
 @app.route('/meme/<path:filename>')
 def serve_meme_file(filename):
     """Serves meme audio assets for humor mode."""
