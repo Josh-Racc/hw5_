@@ -1,0 +1,358 @@
+:root {
+    --bg-top: #07111c;
+    --bg-bottom: #0f2434;
+    --panel: rgba(10, 23, 35, 0.84);
+    --panel-soft: rgba(255, 255, 255, 0.05);
+    --line: rgba(255, 255, 255, 0.12);
+    --ink: #f8f1e7;
+    --muted: #b7c9d6;
+    --accent: #f4a261;
+    --accent-soft: #ffd166;
+    --teal: #29c7ac;
+    --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+body {
+    padding-top: 28px;
+    padding-bottom: 28px;
+    color: var(--ink);
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(244, 162, 97, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(41, 199, 172, 0.16), transparent 28%),
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+}
+
+.page-shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar-inverse {
+    background: rgba(7, 17, 28, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+    color: var(--ink);
+}
+
+.navbar-inverse .navbar-brand {
+    font-family: "Palatino Linotype", "Book Antiqua", serif;
+    letter-spacing: 0.02em;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-brand:hover {
+    color: var(--accent-soft);
+}
+
+.body-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.panel-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+}
+
+.lab-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, 340px) minmax(0, 1fr);
+    gap: 22px;
+    margin-bottom: 24px;
+}
+
+.control-panel,
+.canvas-panel {
+    padding: 28px;
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.section-kicker {
+    margin: 0 0 10px;
+    color: var(--accent-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 12px;
+}
+
+.control-panel h1,
+.canvas-panel h2 {
+    margin: 0;
+    font-family: "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.control-panel h1 {
+    font-size: 38px;
+    line-height: 1.08;
+}
+
+.canvas-panel h2 {
+    font-size: 30px;
+    line-height: 1.12;
+}
+
+.control-field {
+    display: block;
+    margin-bottom: 18px;
+}
+
+.control-field > span {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: center;
+}
+
+input,
+select,
+textarea {
+    max-width: none;
+}
+
+input[type="range"] {
+    accent-color: var(--accent);
+}
+
+select {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--ink);
+    padding: 12px 14px;
+}
+
+output {
+    min-width: 72px;
+    text-align: right;
+    color: var(--accent-soft);
+    font-weight: 700;
+}
+
+.toggle-field {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 6px 0 20px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: var(--panel-soft);
+    border: 1px solid var(--line);
+    font-weight: 700;
+}
+
+.toggle-field input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+.helper-text {
+    margin: 0 0 18px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: var(--panel-soft);
+    border: 1px solid var(--line);
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.helper-text strong {
+    color: var(--accent-soft);
+}
+
+.button-stack {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.lab-button {
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 18px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.lab-button:hover,
+.lab-button:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.24);
+}
+
+.lab-button.primary {
+    color: #08131f;
+    background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+}
+
+.lab-button.accent {
+    color: #07111c;
+    background: linear-gradient(135deg, #7bdff2, var(--teal));
+}
+
+.lab-button.ghost {
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.status-text,
+.caption-text {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.status-text {
+    margin: 20px 0 0;
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.canvas-panel canvas {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: #08131f;
+}
+
+#automata-canvas {
+    aspect-ratio: 1 / 1;
+    margin-bottom: 16px;
+}
+
+#timeline-canvas {
+    margin-top: 16px;
+    min-height: 160px;
+}
+
+.canvas-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    margin-right: 8px;
+}
+
+.legend-swatch.resting {
+    background: #09131f;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.legend-swatch.firing {
+    background: #ffd166;
+}
+
+.legend-swatch.cooling {
+    background: #29c7ac;
+}
+
+.caption-text {
+    margin: 18px 0 0;
+}
+
+.blog-post {
+    max-width: 860px;
+    margin: 0 auto 24px;
+    padding: 32px;
+}
+
+.blog-post h1 {
+    margin: 0 0 22px;
+    font-family: "Palatino Linotype", "Book Antiqua", serif;
+    font-size: 42px;
+    line-height: 1.08;
+}
+
+.blog-post p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.site-footer {
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+footer,
+footer p,
+a {
+    color: var(--muted);
+}
+
+a:hover,
+a:focus {
+    color: var(--accent-soft);
+}
+
+hr {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 991px) {
+    .lab-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .body-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding-top: 18px;
+    }
+
+    .control-panel,
+    .canvas-panel {
+        padding: 22px;
+    }
+
+    .blog-post {
+        padding: 24px;
+    }
+
+    .field-row,
+    .button-stack {
+        grid-template-columns: 1fr;
+    }
+
+    output {
+        text-align: left;
+    }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Blog - Automated Composition Lab</title>
+    <link rel="stylesheet" type="text/css" href="./content/site.css" />
+</head>
+<body>
+    <main class="page-shell">
+        <article class="panel-card blog-post">
+            <h1>Listening to a Cellular Automaton</h1>
+
+            <p>For this lab, I built a small composition tool in WebAudio around a 2D cellular automaton. Instead of starting from a score or a fixed musical pattern, I started from a visual process: a grid of cells evolving over time according to simple local rules. Each generation of the grid became a musical moment, and the browser turned those moments into sound. What surprised me most was how quickly the project stopped feeling like a programming exercise and started feeling like instrument design.</p>
+
+            <p>I chose a three-state cellular automaton in the style of Brian's Brain. I choose to do this one as, well A I got confused and though I was doing the Markov Chain but eventuallywhen relazing oh I choose the wrong one hen searching for guidance, I was like its still intrersting to me. Since well visually, it produces bursts, trails, and pockets of silence that are more interesting than a random note generator but less predictable than a hand-written melody. The key design problem was not the rule itself. The real challenge was deciding what parts of the automaton should matter musically.</p>
+
+            <p>Implementing it myself made one lesson very concrete: generative systems do not automatically become musical just because they are complex. The automaton generated plenty of structure, but not all structure was useful. Some mappings were technically correct and still sounded either flat or I just didnt enjoy what I was listening to. Others produced lots of motion but no real coherence. The interesting work was in compression: taking a large evolving state and extracting just enough information to make a musical gesture. In that sense, the composition logic was less about turning cells into notes and more about choosing what to ignore.</p>
+
+            <p>The WebAudio side of the project taught me something similar about timing. It is easy to make sound in the browser; it is much harder to make sound feel intentional. Scheduling oscillators against the audio clock produced much cleaner playback than relying on ordinary UI timing alone. At the same time, the visualization lived on a different rhythm from the audio engine, so I had to think carefully about how the canvas animation and the note playback should stay in sync without pretending they were driven by the same mechanism. That separation between musical time and interface time is something I struggled a bit honestly before this lab, but it became much more obvious once I had to debug it myself.</p>
+
+            <p>I also came away with a better appreciation for the difference between a generator and an interface. The automaton could produce many possible sequences, but users still needed a clear mental model of what the controls were doing. For soemthjing that was automated there was still a human interacting, so it still felt human music, if that makes sense. Sliders for grid size, density, generation count, and tempo were not just parameters; they were promises about cause and effect. If changing density did not produce an audible change, the system felt broken even when it was technically working. That was one of the most useful insights of the lab for me: algorithmic composition is partly a musical problem, but it is also a communication problem.</p>
+
+            <p>One unexpected benefit of building the system in a browser was that it encouraged experimentation with tone and personality. I added a humor mode that swaps the synthesized output for meme sound effects stored in a folder. On paper that sounds like a joke feature(which it is due to the rick roll before I did on HWK1), but it ended up reinforcing the same design lesson. Even a playful mode still needed clear scheduling, intelligible controls, and a reason to exist beyond novelty. It needed to be semi listenmable(which it is)</p>
+
+            <p>What I liked most about this lab is that it made automated composition feel less mysterious. In class, techniques like cellular automata can sound powerful because they generate surprising behavior from simple rules. After implementing one myself, I think the more interesting truth is that the surprise is only half the story. The other half is curation. The programmer chooses the rule, the mapping, the time scale, the sound palette, and the interface. The machine contributes motion, but the musical identity still emerges from design decisions.</p>
+
+            <p>By the end of the project, I was no longer thinking of the cellular automaton as a hidden algorithm that spits out notes. I was thinking of it as a performer with a very unusual body: a grid that flickers, cools, and re-ignites, while the browser listens for patterns worth turning into sound. That shift in perspective was probably the most valuable part of the lab. It made automated composition feel less like replacing human creativity and more like building a system that gives creativity a different place to happen. I hope my semi yap/random non serious me typing all makes sense!!</p>
+        </article>
+
+        <hr />
+        <footer class="site-footer">
+            <p>&copy; 2026 Automated Composition Lab. <a href="./index.html">Back to the composer</a>.</p>
+        </footer>
+    </main>
+</body>
+</html>
